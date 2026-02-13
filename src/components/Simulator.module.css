@@ -1,0 +1,94 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 2rem;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+}
+
+.device {
+    position: relative;
+    background: #000;
+    border-radius: 40px;
+    box-shadow:
+        0 0 0 1px #333,
+        0 20px 50px -10px rgba(0, 0, 0, 0.5),
+        0 50px 100px -20px rgba(0, 0, 0, 0.8);
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+/* iOS Frame (iPhone 14/15 ish) */
+.ios {
+    width: 375px;
+    height: 812px;
+    border: 12px solid #1a1a1a;
+}
+
+.ios .notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 30px;
+    background: #1a1a1a;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    z-index: 10;
+}
+
+/* Android Frame (Generic Pixel ish) */
+.android {
+    width: 360px;
+    height: 800px;
+    border: 10px solid #2d2d2d;
+    border-radius: 30px;
+}
+
+.android .notch {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #000;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 30px;
+    /* detailed radius tweak */
+    overflow: hidden;
+    position: relative;
+}
+
+.ios .screen {
+    border-radius: 32px;
+}
+
+.android .screen {
+    border-radius: 20px;
+}
+
+.iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fff;
+}
+
+.placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #666;
+    background: #f8fafc;
+}

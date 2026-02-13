@@ -1,0 +1,78 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    height: 100%;
+    overflow-y: auto;
+}
+
+.header {
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--foreground-muted);
+    font-size: 0.875rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--foreground-muted);
+}
+
+.toggleGroup {
+    display: flex;
+    gap: 0.5rem;
+    background: var(--background);
+    padding: 0.25rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.toggleButton {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: calc(var(--radius) - 2px);
+    border: none;
+    background: transparent;
+    color: var(--foreground-muted);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.toggleButton:hover {
+    color: var(--foreground);
+}
+
+.active {
+    background: var(--surface);
+    color: var(--foreground);
+    box-shadow: var(--shadow-sm);
+}
+
+.footer {
+    margin-top: auto;
+    padding-top: 2rem;
+}
+
+.buildButton {
+    width: 100%;
+}
