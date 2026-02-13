@@ -45,7 +45,8 @@ export default function Home() {
           <nav className={styles.navLinks}>
             <Link href="/" className={styles.navLink}>Home</Link>
             <Link href="/pricing" className={styles.navLink}>Pricing</Link>
-            <a href="mailto:tha@vailamtahministry.com" className={styles.navLink}>Contact</a>
+            <Link href="/login" className={styles.navLink}>Login</Link>
+            <Link href="/signup" className={styles.navButton}>Sign Up</Link>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -64,7 +65,8 @@ export default function Home() {
         <nav className={styles.mobileNavLinks}>
           <Link href="/" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
           <Link href="/pricing" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Pricing</Link>
-          <a href="mailto:tha@vailamtahministry.com" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+          <Link href="/login" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Login</Link>
+          <Link href="/signup" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Sign Up</Link>
           <Link href="/builder" className={styles.primaryButton} onClick={() => setIsMobileMenuOpen(false)} style={{ marginTop: '2rem', width: '100%' }}>
             Start Building
           </Link>
