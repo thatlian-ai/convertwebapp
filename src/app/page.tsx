@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
 import { clsx } from 'clsx';
@@ -15,22 +18,58 @@ import {
   ClipboardCheck,
   Video,
   MonitorSmartphone,
-  Layers
+  Layers,
+  Menu,
+  X
 } from 'lucide-react';
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <main className={styles.main}>
       <header className={styles.navHeader}>
         <div className={styles.navContainer}>
           <div className={styles.logo}>ConvertWebApp</div>
+
+          {/* Desktop Nav */}
           <nav className={styles.navLinks}>
             <Link href="/" className={styles.navLink}>Home</Link>
             <Link href="/pricing" className={styles.navLink}>Pricing</Link>
             <a href="mailto:tha@vailamtahministry.com" className={styles.navLink}>Contact</a>
           </nav>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className={styles.mobileMenuBtn}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </header>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`${styles.mobileMenuOverlay} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+        <nav className={styles.mobileNavLinks}>
+          <Link href="/" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+          <Link href="/pricing" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Pricing</Link>
+          <a href="mailto:tha@vailamtahministry.com" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+          <Link href="/builder" className={styles.primaryButton} onClick={() => setIsMobileMenuOpen(false)} style={{ marginTop: '2rem', width: '100%' }}>
+            Start Building
+          </Link>
+        </nav>
+      </div>
       <div className={styles.motionBackground}>
         <div className={clsx(styles.blob, styles.blob1)} />
         <div className={clsx(styles.blob, styles.blob2)} />
