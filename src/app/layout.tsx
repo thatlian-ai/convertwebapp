@@ -5,7 +5,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'Antigravity | Turn your website into an app',
+  title: 'ConvertWebApp | Turn your website into an app',
   description: 'Convert any website into a high-quality iOS and Android app in minutes.',
 };
 

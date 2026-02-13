@@ -31,8 +31,9 @@ export async function POST(req: NextRequest) {
             canEmbed = false;
         }
 
-        if (csp && (csp.includes("frame-ancestors 'none'") || csp.includes("frame-ancestors 'self'"))) {
-            // Very basic check, parsing CSP is complex
+        if (csp && csp.includes("frame-ancestors")) {
+            // If frame-ancestors is present, it likely restricts embedding unless explicitly allowed.
+            // Since we are running on localhost or a different domain, existing directives usually block us.
             canEmbed = false;
         }
 

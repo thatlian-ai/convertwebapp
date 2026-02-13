@@ -71,8 +71,305 @@
 .footer {
     margin-top: auto;
     padding-top: 2rem;
+    padding-bottom: 2rem;
+    /* Added to lift button */
+}
+
+.gridOptions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.optionCard {
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--foreground-muted);
+}
+
+.optionCard:hover {
+    background: var(--surface-hover);
+}
+
+.optionCard.selected {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+.optionIcon {
+    margin-bottom: 0.25rem;
+}
+
+.toggleGroup {
+    display: flex;
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    padding: 4px;
+    gap: 4px;
+}
+
+.toggleButton {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--foreground-muted);
+    padding: 8px;
+    border-radius: calc(var(--radius) - 2px);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.toggleButton.active {
+    background: var(--primary);
+    color: white;
 }
 
 .buildButton {
     width: 100%;
+}
+
+/* Menu Builder Styles */
+.menuListContainer {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    margin-bottom: 1rem;
+}
+
+.menuListHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.emptyState {
+    text-align: center;
+    color: var(--foreground-muted);
+    font-size: 0.875rem;
+    padding: 1rem;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+}
+
+.menuItemsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.menuItemRow {
+    display: flex;
+    align-items: center;
+    background: var(--surface);
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.itemIconWrapper {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-right: 0.75rem;
+    color: var(--foreground);
+}
+
+.itemInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.itemName {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--foreground);
+}
+
+.itemLink {
+    font-size: 0.75rem;
+    color: var(--foreground-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.itemActions {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.iconBtn,
+.iconBtnDestructive {
+    background: transparent;
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--foreground-muted);
+    transition: all 0.2s;
+}
+
+.iconBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--foreground);
+}
+
+.iconBtnDestructive:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+/* Edit Form Styles */
+.menuBuilderForm {
+    background: var(--surface);
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+}
+
+.iconGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 4px;
+    /* Space for scrollbar */
+}
+
+.iconOption {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--foreground-muted);
+    border: 2px solid transparent;
+}
+
+.iconOption:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--foreground);
+}
+
+.selectedIcon {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.formActions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    gap: 0.5rem;
+}
+
+.subHeader {
+    margin-bottom: 1rem;
+    color: var(--foreground);
+}
+
+.subItemsSection {
+    margin-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+}
+
+.subItemsList {
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.subItemRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    font-size: 0.825rem;
+}
+
+.subItemLink {
+    color: var(--foreground-muted);
+    font-size: 0.75rem;
+    margin-left: auto;
+    margin-right: 0.5rem;
+}
+
+.addSubItemForm {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-end;
+}
+
+.addSubItemInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.miniInput {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--foreground);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
+    font-size: 0.825rem;
+    outline: none;
+}
+
+.miniInput:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary);
+}
+
+.uploadButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    color: var(--foreground-muted);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: fit-content;
+}
+
+.uploadButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--foreground);
+    border-color: rgba(255, 255, 255, 0.2);
 }

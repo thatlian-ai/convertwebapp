@@ -1,0 +1,397 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--surface);
+    height: 100%;
+    overflow-y: auto;
+}
+
+.header {
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--foreground_muted);
+    font-size: 0.875rem;
+}
+
+.platformSelection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.platformCard {
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.platformCard:hover {
+    background: var(--surface-hover);
+    border-color: var(--primary);
+}
+
+.platformCard.selected {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.platformIcon {
+    width: 48px;
+    height: 48px;
+    color: var(--primary);
+}
+
+.platformName {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.guideSection {
+    margin-top: 1rem;
+}
+
+.guideTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.checkItem {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+}
+
+.checkItem:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 24px;
+    bottom: -1rem;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.checkBullet {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.checkBullet.completed {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.itemContent {
+    flex: 1;
+}
+
+.itemTitle {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.itemDescription {
+    font-size: 0.825rem;
+    color: var(--foreground-muted);
+    line-height: 1.4;
+}
+
+.tutorialBox {
+    margin-top: 0.75rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    position: relative;
+}
+
+.tutorialHeader {
+    color: var(--foreground);
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.tutorialDescription {
+    font-size: 0.8rem;
+    color: var(--foreground-muted);
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    line-height: 1.5;
+}
+
+.tutorialAction {
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding-left: 1.5rem;
+    transition: all 0.2s;
+}
+
+.tutorialAction:hover {
+    opacity: 0.8;
+}
+
+.videoWrapper {
+    margin-top: 0.75rem;
+    padding-left: 1.5rem;
+}
+
+.screenshotSection {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+}
+
+.sizeGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.sizeCard {
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.sizeCard:hover {
+    border-color: var(--primary);
+}
+
+.selectedSize {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.sizeName {
+    font-size: 0.825rem;
+    font-weight: 600;
+}
+
+.sizeRes {
+    font-size: 0.7rem;
+    color: var(--foreground-muted);
+}
+
+.screenshotActions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.captureBtn {
+    background: #10b981 !important;
+    border-color: #10b981 !important;
+}
+
+.captureBtn:hover {
+    background: #059669 !important;
+}
+
+.identitySection {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+}
+
+.bundleInputGroup {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.miniInput {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    color: var(--foreground);
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+.label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--foreground-muted);
+}
+
+.buildActions {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.downloadWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.disabledBtn {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.lockIcon {
+    margin-left: auto;
+    color: #f59e0b;
+}
+
+.lockNote {
+    font-size: 0.65rem;
+    color: #f59e0b;
+    text-align: center;
+    font-weight: 600;
+}
+
+.upgradeBanner {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--primary);
+}
+
+.autoUploadSection {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius);
+}
+
+.progressBox {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.progressInfo {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.progressBar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.2s ease;
+}
+
+.successNote {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    color: #10b981;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.downloadGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.downloadBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.downloadBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 2rem;
+}

@@ -33,7 +33,7 @@ export function BuilderForm({
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <h2 className={styles.title}>App Configuration</h2>
+                <h2 className={styles.title}>Welcome</h2>
                 <p className={styles.subtitle}>Configure your app settings below.</p>
             </div>
 
@@ -98,7 +98,7 @@ export function BuilderForm({
                     isLoading={isBuilding}
                     disabled={!!urlError || isValidating || !url || !appName}
                 >
-                    {isBuilding ? "Building App..." : "Build App"}
+                    {isBuilding ? "Processing..." : "Next >"}
                 </Button>
             </div>
         </div>
