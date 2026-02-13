@@ -81,6 +81,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    white-space: nowrap;
 }
 
 .navLinks {
@@ -185,6 +186,10 @@
         text-align: center;
         gap: 3rem;
     }
+
+    .heroLeft {
+        align-items: center;
+    }
 }
 
 .heroLeft {
@@ -199,9 +204,9 @@
 }
 
 .heroTitle {
-    font-size: 6rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 900;
-    line-height: 1;
+    line-height: 1.1;
     margin-bottom: 1.5rem;
     letter-spacing: -0.04em;
     animation: fadeInUp 0.8s ease-out;
@@ -209,6 +214,8 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    word-break: break-word;
+    padding: 0 1rem;
 }
 
 .heroSubtitle {
@@ -224,18 +231,23 @@
     display: flex;
     gap: 1.5rem;
     justify-content: center;
+    flex-wrap: wrap;
     animation: fadeInUp 0.8s ease-out 0.4s backwards;
 }
 
 .primaryButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: var(--primary);
     color: white;
-    padding: 1.25rem 2.5rem;
+    padding: 1rem 2rem;
     border-radius: 999px;
     font-weight: 700;
-    font-size: 1.125rem;
+    font-size: 1rem;
     transition: all 0.3s;
     box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+    white-space: nowrap;
 }
 
 .primaryButton:hover {
@@ -499,8 +511,97 @@
         font-size: 3.5rem;
     }
 
+    .heroSubtitle {
+        font-size: 1.25rem;
+    }
+
+    .centeredValueProp {
+        font-size: 2.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.25rem;
+    }
+
     .priceCard.popular {
         transform: scale(1);
+    }
+
+    .navLinks {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .heroSection {
+        padding: 6rem 1rem 3rem;
+    }
+
+    .heroTitle {
+        font-size: 1.35rem !important;
+        white-space: nowrap !important;
+        padding: 0 0.1rem;
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 370px) {
+    .heroTitle {
+        font-size: 1.15rem !important;
+    }
+
+    .primaryButton {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .ctaGroup {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .navContainer {
+        height: 4rem;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .navLinks {
+        display: none !important;
+    }
+
+    .section {
+        padding: 4rem 1rem;
+    }
+
+    .sectionHeader {
+        margin-bottom: 3rem;
+    }
+
+    .glassCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .statValue {
+        font-size: 2rem;
+    }
+
+    .phoneFrame {
+        max-width: 80vw;
+        height: auto !important;
+        aspect-ratio: 9/19;
     }
 }
 

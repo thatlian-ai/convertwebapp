@@ -495,4 +495,38 @@
     .title {
         font-size: 2.5rem;
     }
+
+    .headerSection {
+        margin-bottom: 2rem;
+    }
+
+    .glassCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .contentContainer {
+        padding: 4rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .navContainer {
+        height: 4rem;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .navLinks {
+        display: none;
+    }
 }

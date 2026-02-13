@@ -57,14 +57,18 @@ export async function GET(
 
             // Use the encoded base URL for the proxy base path
             const proxyBasePath = `/api/proxy/${encodedBaseUrl}/`;
+
+            // Inject Base tag and Mobile Viewport to force mobile rendering in simulator
+            const viewportTag = `<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />`;
             const baseTag = `<base href="${proxyBasePath}" />`;
+            const headerInjections = `${viewportTag}${baseTag}`;
 
             if (html.includes("<head>")) {
-                html = html.replace("<head>", `<head>${baseTag}`);
+                html = html.replace("<head>", `<head>${headerInjections}`);
             } else if (html.includes("<html>")) {
-                html = html.replace("<html>", `<html><head>${baseTag}</head>`);
+                html = html.replace("<html>", `<html><head>${headerInjections}</head>`);
             } else {
-                html = `${baseTag}${html}`;
+                html = `${headerInjections}${html}`;
             }
 
             // Rewrite root-relative URLs (starting with / but not //)

@@ -41,3 +41,29 @@
     left: 1rem;
     z-index: 10;
 }
+
+@media (max-width: 1024px) {
+    .main {
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .leftPanel {
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .simulatorContainer {
+        height: 800px;
+        /* Fixed height for simulator on mobile */
+        padding: 2rem 0;
+    }
+
+    .backButton {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0.5rem;
+    }
+}

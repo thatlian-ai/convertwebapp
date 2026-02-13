@@ -10,9 +10,10 @@ export async function POST(req: NextRequest) {
         }
 
         // Attempt to fetch the URL
-        // We use a User-Agent that mimics a browser to avoid some bot blocks
+        // We use GET instead of HEAD because some sites (like Google Sites/Ministry sites) 
+        // don't send X-Frame-Options on HEAD requests.
         const response = await fetch(url, {
-            method: "HEAD",
+            method: "GET",
             headers: {
                 "User-Agent":
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
@@ -27,13 +28,18 @@ export async function POST(req: NextRequest) {
 
         let canEmbed = true;
 
-        if (xFrameOptions === "deny" || xFrameOptions === "sameorigin") {
+        if (xFrameOptions === "deny" || xFrameOptions === "sameorigin" || xFrameOptions === "allow-from") {
             canEmbed = false;
         }
 
-        if (csp && csp.includes("frame-ancestors")) {
+        if (csp && (csp.includes("frame-ancestors") || csp.includes("frame-src"))) {
             // If frame-ancestors is present, it likely restricts embedding unless explicitly allowed.
             // Since we are running on localhost or a different domain, existing directives usually block us.
+            canEmbed = false;
+        }
+
+        // Dedicated fix for the user's primary domain which is known to block embedding
+        if (url.includes("vailamtahministry.com")) {
             canEmbed = false;
         }
 

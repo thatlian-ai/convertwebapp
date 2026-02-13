@@ -28,7 +28,13 @@ export default function BuilderPage() {
     const [primaryColor, setPrimaryColor] = useState("#6366f1");
     const [showAppName, setShowAppName] = useState(true);
     const [showFooterNav, setShowFooterNav] = useState(true);
-    const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+    const [menuItems, setMenuItems] = useState<MenuItem[]>([
+        { id: '1', label: 'Home', icon: 'Home', link: '/' },
+        { id: '2', label: 'About Us', icon: 'Info', link: '/about' },
+        { id: '3', label: 'Media', icon: 'Video', link: 'https://www.youtube.com/@vailamtahministry' },
+        { id: '4', label: 'Giving', icon: 'Heart', link: '/giving-peknak' },
+        { id: '5', label: 'Contact', icon: 'Mail', link: '/contact' },
+    ]);
     const [logoUrl, setLogoUrl] = useState("");
     const [drawerHeaderStyle, setDrawerHeaderStyle] = useState<"solid" | "transparent">("solid");
 
@@ -213,6 +219,7 @@ export default function BuilderPage() {
                     drawerHeaderStyle={drawerHeaderStyle}
                     isScreenshotMode={simProps.isScreenshotMode}
                     screenshotSize={simProps.screenshotSize}
+                    originalUrl={url}
                 />
             </div>
         </main>

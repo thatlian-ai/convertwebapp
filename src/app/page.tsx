@@ -43,13 +43,14 @@ export default function Home() {
             <div className={styles.heroLeft}>
               <div className={styles.badge}>Next-Gen App Builder</div>
               <h1 className={styles.heroTitle}>
+                {/* Mobile responsive title */}
                 ConvertWebApp
               </h1>
               <p className={styles.heroSubtitle}>
                 Transform your website into a premium native mobile app instantly.
                 Automated publishing, real-time simulation, and professional branding at your fingertips.
               </p>
-              <div className={styles.ctaGroup} style={{ justifyContent: 'flex-start' }}>
+              <div className={styles.ctaGroup}>
                 <Link href="/builder" className={styles.primaryButton}>
                   Start Building Now
                 </Link>

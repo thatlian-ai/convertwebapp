@@ -432,16 +432,62 @@
     color: var(--foreground);
 }
 
-@media (max-width: 768px) {
-    .title {
-        font-size: 3rem;
+@media (max-width: 1024px) {
+    .pricingGrid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
     }
 
     .priceCard.popular {
         transform: scale(1);
     }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.75rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.25rem;
+    }
+
+    .priceCard {
+        padding: 2.5rem 1.5rem;
+    }
 
     .navLinks {
         display: none;
+    }
+
+    .tableWrapper {
+        margin: 0 -1.5rem;
+        padding: 0 1.5rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .comparisonTable th,
+    .comparisonTable td {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.25rem;
+    }
+
+    .heroSection {
+        padding: 8rem 1rem 3rem;
+    }
+
+    .amount {
+        font-size: 3rem;
     }
 }
